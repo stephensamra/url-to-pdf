@@ -51,6 +51,8 @@ app.post("/", async (req, res) => {
   try {
     await page.goto(url);
   } catch (e) {
+    await browser.close();
+
     const message = `failed to navigate to ${url}. ${e}`;
     log.error(message);
     return res.status(400).send({ error: message });
