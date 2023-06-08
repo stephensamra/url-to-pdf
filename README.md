@@ -6,8 +6,6 @@ This is a Node.js API that generates a PDF from a given URL. The PDF is generate
 
 ## Installation
 
-The application is available as a Docker image on Docker Hub: `stephensamra/url-to-pdf`.
-
 Using `docker run`:
 
 ```bash
