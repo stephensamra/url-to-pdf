@@ -1,5 +1,7 @@
 # url-to-pdf
 
+[![Docker](https://img.shields.io/badge/Docker-stephensamra%2Furl--to--pdf-blue)](https://hub.docker.com/r/stephensamra/url-to-pdf)
+
 This is a Node.js API that generates a PDF from a given URL. The PDF is generated using [Puppeteer](https://pptr.dev).
 
 ## Installation
