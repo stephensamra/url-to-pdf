@@ -17,7 +17,15 @@ app.use((err, _req, res, next) => {
 });
 
 app.post("/", async (req, res) => {
-  log.info("received request", req.body);
+  log.info(
+    "received request",
+    "headers" in req.body
+      ? {
+          ...req.body,
+          headers: Object.keys(req.body.headers),
+        }
+      : req.body
+  );
   const { url, headers } = req.body;
 
   if (!url) {
@@ -27,7 +35,9 @@ app.post("/", async (req, res) => {
 
   if (!url.startsWith("http") && !url.startsWith("https")) {
     log.error(`url "${url}" is not supported, aborting`);
-    return res.status(400).send({ error: "only http and https urls are supported." });
+    return res
+      .status(400)
+      .send({ error: "only http and https urls are supported." });
   }
 
   if (headers && typeof headers !== "object") {
